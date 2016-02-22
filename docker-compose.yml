@@ -1,0 +1,15 @@
+redis:
+    image: redis
+    ports:
+      - 6379:6379
+
+slanger:
+    build: .
+    ports:
+      - 4567:4567
+      - 8080:8080
+    links:
+      - redis:redis
+    environment:
+      - APP_KEY=765ec374ae0a69f4ce44
+      - SECRET=123ec374ae0a69f4ce00
