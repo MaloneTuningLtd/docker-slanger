@@ -27,4 +27,4 @@ RUN apk update && \
 RUN gem install slanger
 
 # Start the slanger server
-CMD slanger --app_key ${APP_KEY} --secret ${SECRET} -r redis://redis:6379/0
+CMD ["sh", "-c", "slanger --app_key ${PUSHER_APP_KEY} --secret ${PUSHER_APP_SECRET} -r redis://${REDIS_HOST}:${REDIS_PORT}/0"]
